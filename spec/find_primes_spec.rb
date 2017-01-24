@@ -2,13 +2,15 @@ require 'spec_helper'
 
 describe FindPrimes do
 
+  let(:prime_obj) { FindPrimes.new }
+
   describe '#find_primes' do
     it "It returns the first n primes in an array" do
-      expect(FindPrimes.find_primes(5)).to eq [2,3,5,7,11]
+      expect(prime_obj.find_primes(5)).to eq [2,3,5,7,11]
     end
 
-    it "upto limit" do
-      expect(FindPrimes.upto_sieve(5)).to eq [2,3,5,7,11]
+    it "#upto limit" do
+      expect(prime_obj.upto_sieve(5,20)).to eq [5,7,11,13,17]
     end
   end
 
