@@ -1,4 +1,7 @@
 require 'benchmark'
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require
 require './lib/find_primes'
 
 Benchmark.bm do |x|

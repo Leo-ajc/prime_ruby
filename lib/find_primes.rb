@@ -1,55 +1,38 @@
 class FindPrimes
-
   def initialize
-    #@cached_primes = [2,3,5,7,11]
+    @cached_primes = [2, 3, 5, 7]
+    @max_checked = @cached_primes.last + 1
   end
 
-  def find_primes(n)
-    upto_sieve(0,n)
+  def first_n_primes(n)
+    segmented_sieve_of_eratosthenes while @cached_primes.size <= n
+    @cached_primes[0..(n-1)]
   end
 
-  #def sieve_of_eratosthenes(n)
-    #https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Pseudocode
-    #Input: an integer n > 1
-    #return false unless n > 1
-    #
-    #Let A be an array of Boolean values, indexed by integers 2 to n,
-    #  initially all set to true.
-    #a = (2..n).to_a
-    #a[0] = a[1] = nil
-    #a = [nil, nil, *2..n]
-    #
-    #  for i = 2, 3, 4, ..., not exceeding √n:
-   # 2.upto(Math.sqrt(n)) do |i|
-    # if A[i] is true:
-  #    if a[i]
-   #     puts i
-    # for j = i^2, i^2+i, i^2+2i, i^2+3i, ..., not exceeding n :
-        #((i*i)..n).step(i) do |j|
-  #      (i**2..n).step(i) do |j|
-    # A[j] := false
-  #        puts j
-  #        a[j] = nil
-  #      end
-  #    end
-  #  end
-    #Output: all i such that A[i] is true.
-  #  a.compact
-  #end
+  def segmented_sieve_of_eratosthenes
+    # max_segment_size must be an even number
+    max_segment_size = 1_000_000
+    max_cached_prime = @cached_primes.last
 
-  def upto_sieve(low,high)
-    sieve = []
-    for i in 2 .. high
-      sieve[i] = i
-    end
-    for i in 2 .. Math.sqrt(high)
-      next unless sieve[i]
-      (i*i).step(high, i) do |j|
-        sieve[j] = nil
+    segment_min = @max_checked
+    segment_max = [segment_min + max_segment_size, max_cached_prime * 2].min
+    root = Integer(Math.sqrt(segment_max).floor)
+
+    #removing all even numbers
+    segment = ((segment_min + 1) .. segment_max).step(2).to_a
+
+    (1..Float::INFINITY).each do |sieving|
+      prime = @cached_primes[sieving]
+      break if prime > root
+      composite_index = (-(segment_min + 1 + prime) / 2) % prime
+      while composite_index < segment.size do
+        segment[composite_index] = nil
+        composite_index += prime
       end
     end
-    sieve = sieve[(low-1)..(high-2)]
-    sieve.compact
-  end
 
+    @cached_primes.concat(segment.compact!)
+
+    @max_checked = segment_max
+  end
 end
