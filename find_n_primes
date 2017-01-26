@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require
+require './lib/find_primes'
+require './lib/multiplication_grid'
+
+include MultiplicationGrid # Within Ruby's top-level obj 'Main'
+primes = FindPrimes.new.first_n_primes(ARGV[0].to_i)
+puts make_grid(primes)
