@@ -6,7 +6,9 @@ Write an application that takes numeric input (N) from a user and outputs a mult
 
 ## Install
 `git clone github url`
+
 `cd find_n_primes_ruby`
+
 `bundle install`
 
 ## Run 
@@ -38,26 +40,35 @@ Write an application that takes numeric input (N) from a user and outputs a mult
 ![Big O Chart](./benchmark/big_o_chart.png)
 
 > n = 1000
+>
 > O(n^c) Fractional Power
+>
 > y = 442726x^(0.8879)
+>
 > R^2 = 0.96254
 
 #### Other limits
 n = 1000
+
 O(n) Linear
+
 y = 506076x + 6065.7
+
 R^2 = 0.85404
 
 n = 1000
+
 O(log n) Logarithmic
+
 y = 22241ln(x) + 112255
+
 R^2 = 0.70307
 
 ## I am pleased with
-Ruby is a nice language. I like working with it.
+Ruby is a nice language. I like working with it. The segmented sieve was challenging. 
 
 ## Given more time I would
-Integrated the segmented sieve with the multiplication table. I understand that separating the prime number calculators and the presentations results in double calculations of the sieved elements.
+Have integrated the segmented sieve with the multiplication table. I understand that separating the prime number generating code and the grid generating code means there were some double calculations of the sieved elements.
 
 
 
