@@ -68,7 +68,9 @@ Write an application that takes numeric input (N) from a user and outputs a mult
 Ruby is a nice language. I like working with it. The segmented sieve was challenging. 
 
 ## Given more time I would
-Have integrated the segmented sieve with the multiplication table. I understand that separating the prime number generating code and the grid generating code means there were some double calculations of the sieved elements.
+Have integrated the segmented sieve with the multiplication table. I understand that separating the prime number generating code and the grid generating code means there were some double calculations of the sieved elements. 
+
+
 
 
 
