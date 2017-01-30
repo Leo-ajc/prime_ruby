@@ -6,7 +6,7 @@ describe MultiplicationGrid do
       # This is not a unit test.
       # MultiplicationGrid is very minimal so
       # it is difficult to meanfully test.
-      expect(`./find_n_primes 5`).to eq(
+      expect(`./bin/find_n_primes 5`).to eq(
 %Q(+----+----+----+----+----+-----+
 |    | 2  | 3  | 5  | 7  | 11  |
 | 2  | 4  | 6  | 10 | 14 | 22  |
