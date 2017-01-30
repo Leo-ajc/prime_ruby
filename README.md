@@ -5,9 +5,9 @@
 Write an application that takes numeric input (N) from a user and outputs a multiplication table of (N) prime numbers.
 
 ## Install
-`git clone github url`
+`git clone https://github.com/Leo-ajc/prime_ruby.git`
 
-`cd find_n_primes_ruby`
+`cd prime_ruby`
 
 `bundle install`
 
@@ -48,21 +48,21 @@ Write an application that takes numeric input (N) from a user and outputs a mult
 > R^2 = 0.96254
 
 #### Other limits
-n = 1000
+> n = 1000
+> 
+> O(n) Linear
+> 
+> y = 506076x + 6065.7
+> 
+> R^2 = 0.85404
 
-O(n) Linear
-
-y = 506076x + 6065.7
-
-R^2 = 0.85404
-
-n = 1000
-
-O(log n) Logarithmic
-
-y = 22241ln(x) + 112255
-
-R^2 = 0.70307
+> n = 1000
+> 
+> O(log n) Logarithmic
+> 
+> y = 22241ln(x) + 112255
+>
+> R^2 = 0.70307
 
 ## I am pleased with
 Ruby is a nice language. I like working with it. The segmented sieve was challenging. 
